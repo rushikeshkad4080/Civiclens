@@ -1,0 +1,274 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #f1f5f9;
+  color: #1f2937;
+}
+
+/* =========================
+   APP LAYOUT (HORIZONTAL)
+========================= */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0b5ed7, #20c997);
+  color: white;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.sidebar-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  text-align: left;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateX(4px);
+}
+
+.sidebar-btn.active {
+  background: white;
+  color: #0b5ed7;
+  font-weight: 700;
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 35px;
+  overflow-y: auto;
+}
+
+/* =========================
+   DASHBOARD SECTIONS
+========================= */
+.dashboard {
+  animation: fadeIn 0.5s ease;
+}
+
+.dashboard h2 {
+  font-size: 30px;
+  color: #0b5ed7;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   CARDS (STRUCTURED LOOK)
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(32,201,151,0.18));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* =========================
+   REPORT ISSUE FORM
+========================= */
+.report input,
+.report textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+/* =========================
+   BUTTONS (GLOBAL)
+========================= */
+button {
+  background: linear-gradient(135deg, #0b5ed7, #20c997);
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   INFO / ONBOARDING PAGE
+========================= */
+.info-page {
+  width: 100%;
+}
+
+/* HERO BACKGROUND */
+.info-hero-image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+.info-hero-image .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  max-width: 750px;
+  line-height: 1.6;
+}
+
+/* =========================
+   INFO SECTIONS
+========================= */
+.info-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.info-section.light {
+  background: #f4f6f8;
+}
+
+.info-section h2 {
+  font-size: 32px;
+  color: #0b5ed7;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   ROLE BUTTONS
+========================= */
+.role-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.role-buttons button {
+  font-size: 18px;
+  padding: 14px 38px;
+  border-radius: 40px;
+}
+
+/* =========================
+   LISTS (TRANSPORT STOPS)
+========================= */
+ul {
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* =========================
+   FOOTER (FIXED AT BOTTOM)
+========================= */
+.footer {
+  margin-top: auto;
+  background: #0f172a;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
